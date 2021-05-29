@@ -1,4 +1,11 @@
-export default {
+export interface User {
   id: number;
-  name: 'vasya', age: 31, isMarried: false, address: {city: 'Kyiv', street: 'Gongadze', number: 16}},
+  name: string;
+  age: number;
+  isMarried: boolean;
+  address: {
+    city: string;
+    street: string;
+    number: number;
+  }
 }
