@@ -16,8 +16,8 @@ export class PostsComponent implements OnInit {
   posts: Post[];
 
   ngOnInit(): void {
-    this.postService.getPosts().subscribe(value => {
-      this.posts = value.filter(value1 => value1.userId === this.uId);
+    this.postService.getPosts(this.uId).subscribe(value => {
+      this.posts = value;
     });
   }
 

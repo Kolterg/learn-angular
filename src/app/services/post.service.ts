@@ -8,11 +8,9 @@ import {Observable} from "rxjs";
 })
 export class PostService {
 
-  private url = 'https://jsonplaceholder.typicode.com/posts';
-
   constructor(private httpClient: HttpClient) { }
 
-  getPosts(): Observable<Post[]> {
-    return this.httpClient.get<Post[]>(this.url)
+  getPosts(uId: number): Observable<Post[]> {
+    return this.httpClient.get<Post[]>(`http://jsonplaceholder.typicode.com/posts?userId=${uId}`)
   }
 }
