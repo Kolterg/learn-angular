@@ -12,6 +12,7 @@ export class CommentsComponent implements OnInit {
   comments: Comment[] = []
 
   // constructor(private commentService: CommentService) { }
+  //
   constructor(private activatedRoute: ActivatedRoute) {
     this.activatedRoute.data.subscribe(value => console.log(value))
   }
