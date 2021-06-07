@@ -14,7 +14,7 @@ export class UserDetailsComponent implements OnInit {
 
   constructor(private activatedRoute: ActivatedRoute, private userService: UserService) {
     this.activatedRoute.params.subscribe(params => {
-      this.userService.getUser(params.id).subscribe(value => this.user = value)
+      this.userService.getUser(params.id).subscribe(value => this.user = value);
     });
   }
 

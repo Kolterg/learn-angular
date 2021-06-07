@@ -20,7 +20,7 @@ export class PostService {
     return this.httpClient.get<Post>(this.url + '/' + id)
   }
 
-  getChosenPosts(userId: number): Observable<Post[]> {
-    return this.httpClient.get<Post[]>(this.url + '/')
+  getChosenPosts(uId: number): Observable<Post[]> {
+    return this.httpClient.get<Post[]>(this.url + `?userId=${uId}`)
   }
 }
