@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
 import {User} from "../../modules/User";
 import {UserService} from "../../services/user.service";
@@ -8,23 +8,17 @@ import {UserService} from "../../services/user.service";
   templateUrl: './user-details.component.html',
   styleUrls: ['./user-details.component.css']
 })
-export class UserDetailsComponent implements OnInit {
+export class UserDetailsComponent {
 
   user: User;
 
-  constructor(private router: Router, private activatedRout: ActivatedRoute) {
+  constructor(private router: Router, private activatedRout: ActivatedRoute, private userService: UserService) {
     this.activatedRout.params.subscribe(params => {
-      this.user = this.router.getCurrentNavigation()?.extras.state as User;
-    })
+      if (this.router.getCurrentNavigation()?.extras.state) {
+        this.user = this.router.getCurrentNavigation()?.extras.state as User;
+      } else {
+        this.userService.getUser(params.id).subscribe(value => this.user = value)
+      }
+    });
   }
-
-  // constructor(private activatedRoute: ActivatedRoute, private userService: UserService) {
-  //   this.activatedRoute.params.subscribe(params => {
-  //     this.userService.getUser(params.id).subscribe(value => this.user = value)
-  //   });
-  // }
-
-  ngOnInit(): void {
-  }
-
 }
