@@ -12,9 +12,12 @@ export class ChosenCommentsComponent implements OnInit {
 
   comments: Comment[] = [];
 
+  test: string = 'Hello world!!';
+
   constructor(private activatedRoute: ActivatedRoute, private commentService: CommentService) {
     this.activatedRoute.params.subscribe(params => {
       this.commentService.getChosenComment(params.id).subscribe(value => this.comments = value);
+      console.log(this.comments);
     });
   }
 
