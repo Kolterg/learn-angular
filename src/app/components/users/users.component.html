@@ -1,0 +1,5 @@
+<app-user *ngFor="let user of users" [user]="user" (eventEmitter)="catchUser($event)"></app-user>
+<hr>
+<div *ngIf="chosenUser">
+  <app-user-details [chosenUser]="chosenUser"></app-user-details>
+</div>
