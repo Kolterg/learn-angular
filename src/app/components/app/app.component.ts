@@ -12,6 +12,8 @@ export class AppComponent {
   name: string;
 
   constructor(private dataTransferService: DataTransferService) {
-    this.name = this.dataTransferService.state.getValue();
+    this.dataTransferService.state.subscribe(value => {
+      this.name = value;
+    })
   }
 }
