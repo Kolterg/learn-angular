@@ -1,0 +1,21 @@
+<div class="body">
+  <div>
+    <app-car *ngFor="let car of cars" [car]="car"></app-car>
+  </div>
+
+  <form [formGroup]="myForm">
+    <div>
+      <p>Model</p>
+      <input type="text" [formControl]="modelControl">
+    </div>
+    <div>
+      <p>Year</p>
+      <input type="text" [formControl]="yearControl">
+    </div>
+    <div>
+      <p>Price</p>
+      <input type="text" [formControl]="priceControl">
+    </div>
+    <button (click)="add()">Add</button>
+  </form>
+</div>
