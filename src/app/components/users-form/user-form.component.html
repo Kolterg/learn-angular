@@ -1,0 +1,8 @@
+<form [formGroup]="myForm">
+  <select [formControl]="name">
+    <option [value]="user.id" *ngFor="let user of users">{{user.name}}</option>
+  </select>
+  <button (click)="save()">Save</button>
+</form>
+<hr/>
+<app-user [uId]="uId" *ngIf="uId"></app-user>
