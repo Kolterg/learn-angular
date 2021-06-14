@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {Post} from "../../../Post";
+import {Post} from "../../models/Post";
 import {ActivatedRoute} from "@angular/router";
 import {PostService} from "../../services/post.service";
 

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
 import {PostService} from "../../services/post.service";
-import {Post} from "../../../Post";
+import {Post} from "../../models/Post";
 
 @Component({
   selector: 'app-chosen-posts',
