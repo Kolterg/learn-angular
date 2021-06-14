@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import {Comment} from "../../../Comment";
+import { Component } from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
+import {Comment} from "../../../Comment";
 import {CommentService} from "../../services/comment.service";
 
 @Component({
@@ -8,20 +8,13 @@ import {CommentService} from "../../services/comment.service";
   templateUrl: './chosen-comments.component.html',
   styleUrls: ['./chosen-comments.component.css']
 })
-export class ChosenCommentsComponent implements OnInit {
+export class ChosenCommentsComponent {
 
-  comments: Comment[] = [];
-
-  test: string = 'Hello world!!';
+  comments: Comment[];
 
   constructor(private activatedRoute: ActivatedRoute, private commentService: CommentService) {
     this.activatedRoute.params.subscribe(params => {
-      this.commentService.getChosenComment(params.id).subscribe(value => this.comments = value);
-      console.log(this.comments);
+      this.commentService.getChosenComment(params.id).subscribe(value => this.comments = value)
     });
   }
-
-  ngOnInit(): void {
-  }
-
 }

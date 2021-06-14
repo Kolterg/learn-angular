@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
 import {User} from "../../../User";
 import {UserService} from "../../services/user.service";
@@ -8,7 +8,7 @@ import {UserService} from "../../services/user.service";
   templateUrl: './user-details.component.html',
   styleUrls: ['./user-details.component.css']
 })
-export class UserDetailsComponent implements OnInit {
+export class UserDetailsComponent {
 
   user: User;
 
@@ -17,8 +17,4 @@ export class UserDetailsComponent implements OnInit {
       this.userService.getUser(params.id).subscribe(value => this.user = value);
     });
   }
-
-  ngOnInit(): void {
-  }
-
 }

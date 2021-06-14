@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import {Post} from "../../../Post";
 import {ActivatedRoute} from "@angular/router";
 import {PostService} from "../../services/post.service";
@@ -8,7 +8,7 @@ import {PostService} from "../../services/post.service";
   templateUrl: './post-details.component.html',
   styleUrls: ['./post-details.component.css']
 })
-export class PostDetailsComponent implements OnInit {
+export class PostDetailsComponent {
 
   post: Post;
 
@@ -17,8 +17,4 @@ export class PostDetailsComponent implements OnInit {
       this.postService.getPost(params.id).subscribe(value => this.post = value);
     });
   }
-
-  ngOnInit(): void {
-  }
-
 }

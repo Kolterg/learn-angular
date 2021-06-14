@@ -7,7 +7,8 @@ import {RouterModule, Routes} from "@angular/router";
 
 let routes: Routes = [
   {path: 'users', loadChildren: () => import('./modules/user/user.module').then(m => m.UserModule)},
-  {path: 'posts', loadChildren: () => import('./modules/post/post.module').then(m => m.PostModule)}
+  {path: 'posts', loadChildren: () => import('./modules/post/post.module').then(m => m.PostModule)},
+  {path: 'comments', loadChildren: () => import('./modules/comment/comment.module').then(m => m.CommentModule)}
 ];
 
 @NgModule({
