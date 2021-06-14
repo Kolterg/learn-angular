@@ -1,5 +1,5 @@
 import {Component, Input} from '@angular/core';
-import {User} from "../../modules/User";
+import {User} from "../../models/User";
 import {DataTransferService} from "../../services/data-transfer.service";
 
 @Component({
