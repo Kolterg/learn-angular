@@ -33,15 +33,10 @@ export class CarsComponent implements OnInit {
   }
 
   add() {
-    // this.car.model = this.myForm.controls.model.value;
-    // this.car.year = this.myForm.controls.year.value;
-    // this.car.price = this.myForm.controls.price.value;
-    // this.car.model = 'Lada';
-    // this.car.year = 2004;
-    // this.car.price = 5000;
-    this.car = this.cars[1];
+    this.car.model = this.myForm.controls.model.value;
+    this.car.year = this.myForm.controls.year.value;
+    this.car.price = this.myForm.controls.price.value;
     console.log(this.car);
-    this.carService.postCars(this.car);
   }
 
 
