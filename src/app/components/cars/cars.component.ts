@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {CarService} from "../../services/car.service";
 import {Car} from "../../modules/Car";
-import {FormControl, FormGroup} from "@angular/forms";
+import {AbstractControl, FormControl, FormGroup, Validators} from "@angular/forms";
 
 @Component({
   selector: 'app-cars',
@@ -13,7 +13,10 @@ export class CarsComponent implements OnInit {
   cars: Car[];
   car: Car;
 
-  modelControl = new FormControl('M');
+  modelControl = new FormControl('M', [
+    Validators.required,
+    this.customValidator
+  ]);
   yearControl = new FormControl('Y');
   priceControl = new FormControl('P');
 
@@ -29,15 +32,21 @@ export class CarsComponent implements OnInit {
     this.carService.getCars().subscribe(value => {
       this.cars = value;
     });
-    // this.carService.postCars()
   }
 
   add() {
     this.car.model = this.myForm.controls.model.value;
     this.car.year = this.myForm.controls.year.value;
     this.car.price = this.myForm.controls.price.value;
-    console.log(this.car);
+    this.carService.postCars(this.car)
   }
 
+  customValidator(input: AbstractControl) {
+    if (typeof input.value != 'string') {
+      console.log(input.value);
+      return {error: true}
+    }
+    return null
+  }
 
 }
