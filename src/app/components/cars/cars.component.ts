@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {CarService} from "../../services/car.service";
-import {Car} from "../../modules/Car";
+import {Car} from "../../models/Car";
 import {AbstractControl, FormControl, FormGroup, Validators} from "@angular/forms";
 
 @Component({
